@@ -6,7 +6,7 @@ categories:
  - app
 ---
 # 0 背景
-从小学开始，我就很喜欢玩4399上的[宠物连连看flash小游戏](http://www.4399.com/flash/17801_4.htm)。
+从小学开始，我就很喜欢玩4399上的[宠物连连看flash小游戏](https://www.4399.com/flash/17801_4.htm)。
 
 然而，因为flash的安全性等问题，很多浏览器都不再支持flash。比如chrome，自 2021 年起，[在任何版本的 Chrome 中，Flash 内容（包括音频和视频）都将无法再正常播放](https://www.blog.google/products/chrome/saying-goodbye-flash-chrome/)，并且从v88起完全移除Flash插件的相关代码。
 <!-- more -->

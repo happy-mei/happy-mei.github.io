@@ -24,7 +24,7 @@ categories:
 ## 准备步骤
 1.  安装[node.js](https://nodejs.org/)
 2.  安装[git](https://git-scm.com/)
-3.  注册[github](http://www.github.com/)
+3.  注册[github](https://www.github.com/)
 
 ## 配置SSH keys
 ### 生成SSH Keys
@@ -51,7 +51,7 @@ Enter same passphrase again:<再次输入加密串>
 看到这样的界面就成功设置ssh key了。
 ![成功设置 ssh key](/assets/img/2016/07/1.png)
 
-注意：如果你使用的是mac，需要在命令前加上sudo，详细可以看这篇文章[Hexo部署时提示Fatal： Could not read from remote repository的问题处理](http://idealife.github.io/2015/10/02/Hexo%E9%83%A8%E7%BD%B2%E6%97%B6%E6%8F%90%E7%A4%BAfatal-Could-not-read-from-remote-repository%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/)
+注意：如果你使用的是mac，需要在命令前加上sudo，详细可以看这篇文章[Hexo部署时提示Fatal： Could not read from remote repository的问题处理](https://idealife.github.io/2015/10/02/Hexo%E9%83%A8%E7%BD%B2%E6%97%B6%E6%8F%90%E7%A4%BAfatal-Could-not-read-from-remote-repository%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/)
 
 ### 将SSH Key添加到Github上
 1.  打开本地C:\Documents and Settings\Administrator\.ssh\id_rsa.pub文件。路径也有可能是C:\Users\Administrator\.ssh，你可以直接在C盘中查找id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。打开，准确的复制这个文件的内容。
@@ -146,7 +146,7 @@ $ hexo s #server测试环境，启动本地服务，进行文章预览调试
 配置为这样子,只需要把seminelee改为你自己的github用户名就可以了。（注意格式，冒号后要有空格，你可以直接复制以下代码再作修改）
 ``` bash
 # Deployment
-## Docs: http://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repository: https://github.com/seminelee/seminelee.github.io.git
@@ -160,7 +160,7 @@ $ hexo d #deploy开发环境
 如果看到结果最后一行是INFO Deploy done:git则没有问题。否则，则可以把上面的配置改为下面这种使用SSH方式的提交，把用户名改为你自己的用户名
 ``` bash
 # Deployment
-## Docs: http://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repository: git@github.com:seminelee/seminelee.github.io.git
@@ -178,6 +178,6 @@ $ npm install hexo-deployer-git --save
 再次执行命令之后，打开[https://seminelee.github.io/](https://seminelee.github.io/)就能看到你建立好的博客了！
 
 ## 参考
--   [如何搭建一个独立博客——简明Github Pages与Hexo教程](http://www.jianshu.com/p/05289a4bc8b2)
--   [使用github+Hexo人人都能拥有一个美美的博客](http://www.jianshu.com/p/863f3f2d1733)
--   [搭建 hexo，在执行 hexo deploy 后,出现 error deployer not found:github 的错误](http://www.v2ex.com/t/175940)
+-   [如何搭建一个独立博客——简明Github Pages与Hexo教程](https://www.jianshu.com/p/05289a4bc8b2)
+-   [使用github+Hexo人人都能拥有一个美美的博客](https://www.jianshu.com/p/863f3f2d1733)
+-   [搭建 hexo，在执行 hexo deploy 后,出现 error deployer not found:github 的错误](https://www.v2ex.com/t/175940)

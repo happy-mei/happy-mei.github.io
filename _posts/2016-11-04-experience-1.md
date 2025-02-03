@@ -11,7 +11,7 @@ categories:
 <!-- more -->
 ## 键盘遮挡影响布局
 坑：ios下fixed属性失效。在编辑框输入内容时会弹出软键盘，而手机屏幕区域有限往往会遮住输入界面。
-如下面截图，图片来自[%幻#影% - 博客园](http://www.cnblogs.com/cmblogs/p/4448336.html)
+如下面截图，图片来自[%幻#影% - 博客园](https://www.cnblogs.com/cmblogs/p/4448336.html)
 ![键盘遮挡影响布局](/assets/img/2016/11/experience-1-2.jpg)
 fix：
  - 方法一：css 设置flex:1
