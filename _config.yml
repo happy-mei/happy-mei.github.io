@@ -121,7 +121,7 @@ comments:
   giscus:
     repo: happy-mei/happy-mei.github.io # <gh-username>/<repo>
     repo_id: R_kgDONzZvWg
-    category: Comments
+    category: Announcements
     category_id: DIC_kwDONzZvWs4Cmm5r
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
