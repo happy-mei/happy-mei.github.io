@@ -49,9 +49,9 @@ public class Main {
 
 The loop condition of the above code is `i<ns.length`. Since the length of the `ns` array is `5`, when the value of `i` is updated to `5` after looping `5` times, the looping condition is not satisfied and the `for` loop ends.
 
-```alert type=tip title=思考
-如果把循环条件改为i<=ns.length，会出现什么问题？
-```
+> [!TIP]思考
+>
+> 如果把循环条件改为i<=ns.length，会出现什么问题？
 
 Note that the initialization counter for `for` loops is always executed, and that `for` loops may also loop 0 times.
 

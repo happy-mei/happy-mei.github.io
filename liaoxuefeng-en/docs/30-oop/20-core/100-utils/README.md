@@ -198,9 +198,9 @@ public class Main {
 
 In cryptography, secure random numbers are very important. If insecure pseudo-random numbers are used, all cryptographic systems will be broken. Therefore, always keep in mind that `SecureRandom` must be used to generate secure random numbers.
 
-```alert type=caution title=注意
-需要使用安全随机数的时候，必须使用SecureRandom，绝不能使用Random！
-```
+> [!CAUTION]注意
+>
+> 需要使用安全随机数的时候，必须使用SecureRandom，绝不能使用Random！
 
 ### Summary
 

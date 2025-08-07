@@ -1,10 +1,15 @@
 site_name: Liaoxuefeng Java Tutorial
-
-
 site_url: https://happy-mei.github.io/liaoxuefeng-en/site/
+site_description: 廖雪峰的 Java 教程 英文版。An unofficial English translation of Liaoxuefeng's Java Tutorial, for educational purposes only.
+site_author: happy-mei
+copyright: >
+  © 2023 happy-mei. This is an unofficial, non-commercial translation of 廖雪峰的 Java 教程.
+  All original content © 廖雪峰. Visit the official tutorial at https://liaoxuefeng.com/books/java.
 
 theme:
   name: material
+  logo: assets/images/favicon-32x32.png
+  favicon: assets/images/favicon-16x16.png
   features:
     - content.code.copy
     - content.code.select

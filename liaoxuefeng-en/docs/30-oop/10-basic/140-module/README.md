@@ -15,9 +15,9 @@ If you are developing your own program, you need a bunch of third-party jar pack
 java -cp app.jar:a.jar:b.jar:c.jar com.liaoxuefeng.sample.Main
 ```
 
-```alert type=warning title=注意
-JVM自带的标准库rt.jar不要写到classpath中，写了反而会干扰JVM的正常运行。
-```
+> [!WARNING]注意
+>
+> JVM自带的标准库rt.jar不要写到classpath中，写了反而会干扰JVM的正常运行。
 
 If you leave out a jar that is required at runtime, it is highly likely that a `ClassNotFoundException` will be thrown at runtime.
 

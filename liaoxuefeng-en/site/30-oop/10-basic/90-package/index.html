@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="廖雪峰的 Java 教程 英文版。An unofficial English translation of Liaoxuefeng's Java Tutorial, for educational purposes only.">
+      
+      
+        <meta name="author" content="happy-mei">
       
       
         <link rel="canonical" href="https://happy-mei.github.io/liaoxuefeng-en/site/30-oop/10-basic/90-package/">
@@ -17,7 +21,7 @@
         <link rel="next" href="../100-scope/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon-16x16.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -82,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-header__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -180,8 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-nav__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     Liaoxuefeng Java Tutorial
@@ -1423,6 +1425,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compile-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compile and run
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       Exercise
@@ -2221,6 +2241,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compile-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compile and run
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       Exercise
@@ -2281,14 +2319,13 @@
 </code></pre></div>
 <p>When the Java Virtual Machine executes, the JVM only looks at the full class name, so as long as the package name is different, the class is different.</p>
 <p>Packages can be multi-layered structures, separated by <code>.</code> separated by <code>. For example:</code>java.util`.</p>
-<p>```alert type=warning title=特别注意
-包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。
-<div class="highlight"><pre><span></span><code>A `class` that does not define a package name, which uses the default package, is very prone to name clashes, so the practice of leaving the package name unspecified is not recommended.
-
-We also need to organize the Java files above according to the package structure. Assuming `package_sample` as the root directory and `src` as the source directory, the structure of all the files is:
-
-```ascii
-package_sample
+<blockquote>
+<p>[!WARNING]特别注意</p>
+<p>包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。</p>
+</blockquote>
+<p>A <code>class</code> that does not define a package name, which uses the default package, is very prone to name clashes, so the practice of leaving the package name unspecified is not recommended.</p>
+<p>We also need to organize the Java files above according to the package structure. Assuming <code>package_sample</code> as the root directory and <code>src</code> as the source directory, the structure of all the files is:</p>
+<div class="highlight"><pre><span></span><code>package_sample
 └─ src
     ├─ hong
     │  └─ Person.java
@@ -2297,7 +2334,7 @@ package_sample
     └─ mr
        └─ jun
           └─ Arrays.java
-</code></pre></div></p>
+</code></pre></div>
 <p>That is, the directory hierarchy corresponding to all Java files should be the same as the package hierarchy.</p>
 <p>The compiled <code>.class</code> file also needs to be stored in a package structure. If you use an IDE and put the compiled <code>.class</code> file in the <code>bin</code> directory, the structure of the compiled file is:</p>
 <div class="highlight"><pre><span></span><code>package_sample
@@ -2419,40 +2456,36 @@ package_sample
 <li>Automatically <code>import</code> other <code>classes</code> of the current <code>package</code> by default;</li>
 <li>Automatically <code>import java.lang.*</code> by default.</li>
 </ul>
-<p>```alert type=warning title=注意
-自动导入的是java.lang包，但类似java.lang.reflect这些包仍需要手动导入。
-<div class="highlight"><pre><span></span><code>If there are two `class`s with the same name, e.g., `mr.jun.Arrays` and `java.util.Arrays`, then only one of them can be `imported` and the other must be written with the full class name.
-
-### Best practices
-
-To avoid name conflicts, we need to determine unique package names. The recommended practice is to use inverted domain names to ensure uniqueness. Example:
-
-* org.apache.commons.log
-* org.apache.commons.log
-* com.liaoxuefeng.sample
-
-Subpackages can then name themselves according to their function.
-
-Be careful not to rename classes with classes from the `java.lang` package, i.e., don&#39;t use these names for your own classes:
-
-* String
-* System
-* Runtime
-* ...
-
-Be careful not to rename common JDK classes either:
-
-* java.util.List
-* java.text.
-* java.math.BigInteger
-* ...
-
-### Compile and run
-
-Suppose we create the following directory structure:
-
-```ascii
-work
+<blockquote>
+<p>[!WARNING]注意</p>
+<p>自动导入的是java.lang包，但类似java.lang.reflect这些包仍需要手动导入。</p>
+</blockquote>
+<p>If there are two <code>class</code>s with the same name, e.g., <code>mr.jun.Arrays</code> and <code>java.util.Arrays</code>, then only one of them can be <code>imported</code> and the other must be written with the full class name.</p>
+<h3 id="best-practices">Best practices</h3>
+<p>To avoid name conflicts, we need to determine unique package names. The recommended practice is to use inverted domain names to ensure uniqueness. Example:</p>
+<ul>
+<li>org.apache.commons.log</li>
+<li>org.apache.commons.log</li>
+<li>com.liaoxuefeng.sample</li>
+</ul>
+<p>Subpackages can then name themselves according to their function.</p>
+<p>Be careful not to rename classes with classes from the <code>java.lang</code> package, i.e., don't use these names for your own classes:</p>
+<ul>
+<li>String</li>
+<li>System</li>
+<li>Runtime</li>
+<li>...</li>
+</ul>
+<p>Be careful not to rename common JDK classes either:</p>
+<ul>
+<li>java.util.List</li>
+<li>java.text.</li>
+<li>java.math.BigInteger</li>
+<li>...</li>
+</ul>
+<h3 id="compile-and-run">Compile and run</h3>
+<p>Suppose we create the following directory structure:</p>
+<div class="highlight"><pre><span></span><code>work
 ├── bin
 └── src
     └── com
@@ -2461,7 +2494,7 @@ work
             │   └── Main.java
             └── world
                 └── Person.java
-</code></pre></div></p>
+</code></pre></div>
 <p>Among them, the <code>bin</code> directory is used to store the compiled <code>class</code> files, and the <code>src</code> directory stores the Java source code according to the package structure, how can we compile these Java source code at once?</p>
 <p>First, make sure that the current directory is the <code>work</code> directory, the parent directory where <code>src</code> and <code>bin</code> are stored:</p>
 <div class="highlight"><pre><span></span><code>$ ls
@@ -2539,6 +2572,11 @@ Hello, world!
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2023 happy-mei. This is an unofficial, non-commercial translation of 廖雪峰的 Java 教程. All original content © 廖雪峰. Visit the official tutorial at https://liaoxuefeng.com/books/java.
+
+    </div>
   
   
     Made with

@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="廖雪峰的 Java 教程 英文版。An unofficial English translation of Liaoxuefeng's Java Tutorial, for educational purposes only.">
+      
+      
+        <meta name="author" content="happy-mei">
       
       
         <link rel="canonical" href="https://happy-mei.github.io/liaoxuefeng-en/site/30-oop/10-basic/140-module/">
@@ -17,7 +21,7 @@
         <link rel="next" href="../../20-core/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon-16x16.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -82,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-header__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -180,8 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-nav__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     Liaoxuefeng Java Tutorial
@@ -1520,6 +1522,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#writing-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run-the-module" class="md-nav__link">
     <span class="md-ellipsis">
       Run the module
@@ -2212,6 +2223,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#writing-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run-the-module" class="md-nav__link">
     <span class="md-ellipsis">
       Run the module
@@ -2281,32 +2301,26 @@
 <p>If you are developing your own program, you need a bunch of third-party jar packages in addition to an <code>app.jar</code> of your own to run a Java program, and in general, the command line writes like this:</p>
 <div class="highlight"><pre><span></span><code>java -cp app.jar:a.jar:b.jar:c.jar com.liaoxuefeng.sample.Main
 </code></pre></div>
-<p>```alert type=warning title=注意
-JVM自带的标准库rt.jar不要写到classpath中，写了反而会干扰JVM的正常运行。
-<div class="highlight"><pre><span></span><code>If you leave out a jar that is required at runtime, it is highly likely that a `ClassNotFoundException` will be thrown at runtime.
-
-So, a jar is just a container for classes, it doesn&#39;t care about dependencies between classes.
-
-Modules have been introduced since Java 9, mainly to solve the problem of &quot;dependencies&quot;. If `a.jar` must depend on another `b.jar` in order to run, then we should add some description to `a.jar`, so that the program can automatically locate `b.jar` when compiling and running, this kind of class container with &quot;dependency&quot; is a module.
-
-In a sign of Java&#39;s commitment to modularity, starting with Java 9, the original Java standard library has been split from a single, huge `rt.jar` into dozens of modules, identified by the `.jmod` extension, which can be found in the `$JAVA_HOME/jmods` directory:
-
-* java.base.jmod
-* java.compiler.jmod
-* java.datatransfer.jmod
-* java.desktop.jmod
-* ...
-
-Each of these `.jmod` files is a module, and the module name is the file name. For example, the file corresponding to the module `java.base` is `java.base.jmod`. Dependencies between modules are written to the `module-info.class` file within the module. All modules depend directly or indirectly on `java.base`, only `java.base` module does not depend on any module, it can be regarded as the &quot;root module&quot;, as if all classes are inherited directly or indirectly from `Object`.
-
-Packaging a bunch of classes into a jar is just a packaging process, while packaging a bunch of classes into a module requires not only packaging, but also writing dependencies, and can also contain binary code (usually JNI extensions). In addition, modules support multiple versions, that is, in the same module can provide different versions for different JVMs.
-
-### Writing modules
-
-So, how should we write modules? Or take a concrete example. First of all, creating a module is exactly the same as the original creation of a Java project, take the `oop-module` project as an example, it has the following directory structure:
-
-```ascii
-oop-module
+<blockquote>
+<p>[!WARNING]注意</p>
+<p>JVM自带的标准库rt.jar不要写到classpath中，写了反而会干扰JVM的正常运行。</p>
+</blockquote>
+<p>If you leave out a jar that is required at runtime, it is highly likely that a <code>ClassNotFoundException</code> will be thrown at runtime.</p>
+<p>So, a jar is just a container for classes, it doesn't care about dependencies between classes.</p>
+<p>Modules have been introduced since Java 9, mainly to solve the problem of "dependencies". If <code>a.jar</code> must depend on another <code>b.jar</code> in order to run, then we should add some description to <code>a.jar</code>, so that the program can automatically locate <code>b.jar</code> when compiling and running, this kind of class container with "dependency" is a module.</p>
+<p>In a sign of Java's commitment to modularity, starting with Java 9, the original Java standard library has been split from a single, huge <code>rt.jar</code> into dozens of modules, identified by the <code>.jmod</code> extension, which can be found in the <code>$JAVA_HOME/jmods</code> directory:</p>
+<ul>
+<li>java.base.jmod</li>
+<li>java.compiler.jmod</li>
+<li>java.datatransfer.jmod</li>
+<li>java.desktop.jmod</li>
+<li>...</li>
+</ul>
+<p>Each of these <code>.jmod</code> files is a module, and the module name is the file name. For example, the file corresponding to the module <code>java.base</code> is <code>java.base.jmod</code>. Dependencies between modules are written to the <code>module-info.class</code> file within the module. All modules depend directly or indirectly on <code>java.base</code>, only <code>java.base</code> module does not depend on any module, it can be regarded as the "root module", as if all classes are inherited directly or indirectly from <code>Object</code>.</p>
+<p>Packaging a bunch of classes into a jar is just a packaging process, while packaging a bunch of classes into a module requires not only packaging, but also writing dependencies, and can also contain binary code (usually JNI extensions). In addition, modules support multiple versions, that is, in the same module can provide different versions for different JVMs.</p>
+<h3 id="writing-modules">Writing modules</h3>
+<p>So, how should we write modules? Or take a concrete example. First of all, creating a module is exactly the same as the original creation of a Java project, take the <code>oop-module</code> project as an example, it has the following directory structure:</p>
+<div class="highlight"><pre><span></span><code>oop-module
 ├── bin
 ├── build.sh
 └── src
@@ -2316,7 +2330,7 @@ oop-module
     │           ├── Greeting.java
     │           └── Main.java
     └── module-info.java
-</code></pre></div></p>
+</code></pre></div>
 <p>The <code>bin</code> directory holds the compiled class files, the <code>src</code> directory holds the source code, which is stored according to the directory structure of the package name, and just under the <code>src</code> directory, there is an extra file <code>module-info.java</code>, which is the description file of the module. In this module, it looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span><span class="na">world</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">requires</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">base</span><span class="p">;</span><span class="w"> </span><span class="c1">// 可不写，任何模块都会自动引入java.base</span>
@@ -2446,6 +2460,11 @@ Hello, xml!
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2023 happy-mei. This is an unofficial, non-commercial translation of 廖雪峰的 Java 教程. All original content © 廖雪峰. Visit the official tutorial at https://liaoxuefeng.com/books/java.
+
+    </div>
   
   
     Made with

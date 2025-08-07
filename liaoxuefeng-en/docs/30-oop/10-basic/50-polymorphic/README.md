@@ -26,9 +26,9 @@ class Student extends Person {
 
 Override differs from Overload in that if the method signature is different, it is Overload and the Overload method is a new method; if the method signature is the same and the return value is the same, it is `Override`.
 
-```alert type=warning title=注意
-方法名相同，方法参数相同，但方法返回值不同，也是不同的方法。在Java程序中，出现这种情况，编译器会报错。
-```
+> [!WARNING]注意
+>
+> 方法名相同，方法参数相同，但方法返回值不同，也是不同的方法。在Java程序中，出现这种情况，编译器会报错。
 
 ```java
 class Person {

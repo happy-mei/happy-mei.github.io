@@ -45,9 +45,9 @@ When the Java Virtual Machine executes, the JVM only looks at the full class nam
 
 Packages can be multi-layered structures, separated by `. ` separated by `. For example: `java.util`.
 
-```alert type=warning title=特别注意
-包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。
-```
+> [!WARNING]特别注意
+>
+> 包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。
 
 A `class` that does not define a package name, which uses the default package, is very prone to name clashes, so the practice of leaving the package name unspecified is not recommended.
 
@@ -216,9 +216,9 @@ Therefore, when writing a class, the compiler automatically does two import acti
 * Automatically `import` other `classes` of the current `package` by default;
 * Automatically `import java.lang.*` by default.
 
-```alert type=warning title=注意
-自动导入的是java.lang包，但类似java.lang.reflect这些包仍需要手动导入。
-```
+> [!WARNING]注意
+>
+> 自动导入的是java.lang包，但类似java.lang.reflect这些包仍需要手动导入。
 
 If there are two `class`s with the same name, e.g., `mr.jun.Arrays` and `java.util.Arrays`, then only one of them can be `imported` and the other must be written with the full class name.
 

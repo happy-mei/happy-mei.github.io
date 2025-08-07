@@ -102,9 +102,9 @@ System.out.println(d1.compareTo(d2)); // 0 = 相等, -1 = d1 < d2, 1 = d1 > d2
 
 Comparisons must be made using the `compareTo()` method, which returns negative, positive, and `0` for less than, greater than, and equal to, respectively, depending on the size of the two values.
 
-```alert type=warning title=注意
-总是使用compareTo()比较两个BigDecimal的值，不要使用equals()！
-```
+> [!WARNING]注意
+>
+> 总是使用compareTo()比较两个BigDecimal的值，不要使用equals()！
 
 If you look at the source code of `BigDecimal`, you can see that a `BigDecimal` is actually represented by a `BigInteger` and a `scale`, i.e., the `BigInteger` represents a full integer and the `scale` represents the number of decimal places:
 

@@ -329,9 +329,9 @@ class Person {
 
 Notice that the argument to `setName()` is now an array. At first, passing the `fullname` array in, and then, modifying the contents of the `fullname` array, it turns out that the field `p.name` of the instance `p` has also been modified!
 
-```alert type=notice title=结论
-引用类型参数的传递，调用方的变量，和接收方的参数变量，指向的是同一个对象。双方任意一方对这个对象的修改，都会影响对方（因为指向同一个对象嘛）。
-```
+> [!NOTICE]结论
+>
+> 引用类型参数的传递，调用方的变量，和接收方的参数变量，指向的是同一个对象。双方任意一方对这个对象的修改，都会影响对方（因为指向同一个对象嘛）。
 
 With the above conclusion in mind, let's look at another example:
 

@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="廖雪峰的 Java 教程 英文版。An unofficial English translation of Liaoxuefeng's Java Tutorial, for educational purposes only.">
+      
+      
+        <meta name="author" content="happy-mei">
       
       
         <link rel="canonical" href="https://happy-mei.github.io/liaoxuefeng-en/site/30-oop/20-core/60-enum/">
@@ -17,7 +21,7 @@
         <link rel="next" href="../70-record/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon-16x16.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -82,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-header__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -180,8 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-nav__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     Liaoxuefeng Java Tutorial
@@ -1778,6 +1780,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       Summary
@@ -2278,6 +2289,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       Summary
@@ -2457,74 +2477,73 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>This eliminates the need to worry about order changes, and when adding new enumeration constants, you also need to specify an <code>int</code> value.</p>
-<p>```alert type=warning title=注意
-枚举类的字段也可以是非final类型，即可以在运行期修改，但是不推荐这样做！
-<div class="highlight"><pre><span></span><code>By default, calling `toString()` on enum constants returns the same string as `name()`. However, `toString()` can be overridden, whereas `name()` cannot. We can add the `toString()` method to `Weekday`:
+<blockquote>
+<p>[!WARNING]注意</p>
+<p>枚举类的字段也可以是非final类型，即可以在运行期修改，但是不推荐这样做！</p>
+</blockquote>
+<p>By default, calling <code>toString()</code> on enum constants returns the same string as <code>name()</code>. However, <code>toString()</code> can be overridden, whereas <code>name()</code> cannot. We can add the <code>toString()</code> method to <code>Weekday</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// enum</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Weekday</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Weekday</span><span class="p">.</span><span class="na">SUN</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">day</span><span class="p">.</span><span class="na">dayValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">day</span><span class="p">.</span><span class="na">dayValue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Today is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;. Work at home!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Today is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;. Work at office!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-```java
-// enum
-public class Main {
-    public static void main(String[] args) {
-        Weekday day = Weekday.SUN;
-        if (day.dayValue == 6 || day.dayValue == 0) {
-            System.out.println(&quot;Today is &quot; + day + &quot;. Work at home!&quot;);
-        } else {
-            System.out.println(&quot;Today is &quot; + day + &quot;. Work at office!&quot;);
-        }
-    }
-}
+<span class="kd">enum</span><span class="w"> </span><span class="n">Weekday</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MON</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期一&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">TUE</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期二&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">WED</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期三&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">THU</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期四&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">FRI</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期五&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">SAT</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期六&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">SUN</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;星期日&quot;</span><span class="p">);</span>
 
-enum Weekday {
-    MON(1, &quot;星期一&quot;), TUE(2, &quot;星期二&quot;), WED(3, &quot;星期三&quot;), THU(4, &quot;星期四&quot;), FRI(5, &quot;星期五&quot;), SAT(6, &quot;星期六&quot;), SUN(0, &quot;星期日&quot;);
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dayValue</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">chinese</span><span class="p">;</span>
 
-    public final int dayValue;
-    private final String chinese;
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Weekday</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dayValue</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">chinese</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dayValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dayValue</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">chinese</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chinese</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    private Weekday(int dayValue, String chinese) {
-        this.dayValue = dayValue;
-        this.chinese = chinese;
-    }
-
-    @Override
-    public String toString() {
-        return this.chinese;
-    }
-}
-</code></pre></div></p>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">chinese</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>The purpose of overriding <code>toString()</code> is to make the output more readable.</p>
-<p>```alert type=warning title=注意
-判断枚举常量的名字，要始终使用name()方法，绝不能调用toString()！
-<div class="highlight"><pre><span></span><code>### Switch
+<blockquote>
+<p>[!WARNING]注意</p>
+<p>判断枚举常量的名字，要始终使用name()方法，绝不能调用toString()！</p>
+</blockquote>
+<h3 id="switch">Switch</h3>
+<p>Finally, enumerated classes can be used in <code>switch</code> statements. Because enumerated classes inherently have type information and a limited number of enumeration constants, they are better suited for use in <code>switch</code> statements than <code>int</code> and <code>String</code> types:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// switch</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Weekday</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Weekday</span><span class="p">.</span><span class="na">SUN</span><span class="p">;</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">day</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">MON</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">TUE</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">WED</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">THU</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">FRI</span><span class="p">:</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Today is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;. Work at office!&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">SAT</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">SUN</span><span class="p">:</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Today is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;. Work at home!&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="p">:</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;cannot process &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-Finally, enumerated classes can be used in `switch` statements. Because enumerated classes inherently have type information and a limited number of enumeration constants, they are better suited for use in `switch` statements than `int` and `String` types:
-
-```java
-// switch
-public class Main {
-    public static void main(String[] args) {
-        Weekday day = Weekday.SUN;
-        switch(day) {
-        case MON:
-        case TUE:
-        case WED:
-        case THU:
-        case FRI:
-            System.out.println(&quot;Today is &quot; + day + &quot;. Work at office!&quot;);
-            break;
-        case SAT:
-        case SUN:
-            System.out.println(&quot;Today is &quot; + day + &quot;. Work at home!&quot;);
-            break;
-        default:
-            throw new RuntimeException(&quot;cannot process &quot; + day);
-        }
-    }
-}
-
-enum Weekday {
-    MON, TUE, WED, THU, FRI, SAT, SUN;
-}
-</code></pre></div></p>
+<span class="kd">enum</span><span class="w"> </span><span class="n">Weekday</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MON</span><span class="p">,</span><span class="w"> </span><span class="n">TUE</span><span class="p">,</span><span class="w"> </span><span class="n">WED</span><span class="p">,</span><span class="w"> </span><span class="n">THU</span><span class="p">,</span><span class="w"> </span><span class="n">FRI</span><span class="p">,</span><span class="w"> </span><span class="n">SAT</span><span class="p">,</span><span class="w"> </span><span class="n">SUN</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Adding the <code>default</code> statement allows you to automatically report an error if you miss writing one of the enumeration constants, so that you can catch the error in time.</p>
 <h3 id="summary">Summary</h3>
 <p>Java uses <code>enum</code> to define enumeration types, which are compiled by the compiler as <code>final class Xxx extends Enum { ... }</code>;</p>
@@ -2560,6 +2579,11 @@ enum Weekday {
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2023 happy-mei. This is an unofficial, non-commercial translation of 廖雪峰的 Java 教程. All original content © 廖雪峰. Visit the official tutorial at https://liaoxuefeng.com/books/java.
+
+    </div>
   
   
     Made with

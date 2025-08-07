@@ -188,9 +188,9 @@ The `Throwable.getCause()` method can be used to get the original exception in c
 
 With complete information about the exception stack, we can quickly locate and fix problems with the code.
 
-```alert type=notice title=最佳实践
-捕获到异常并再次抛出时，一定要留住原始异常，否则很难定位第一案发现场！
-```
+> [!NOTICE]最佳实践
+>
+> 捕获到异常并再次抛出时，一定要留住原始异常，否则很难定位第一案发现场！
 
 If we throw an exception in a `try` or `catch` statement block, does the `finally` statement execute? Example:
 

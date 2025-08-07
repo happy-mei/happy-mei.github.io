@@ -13,7 +13,7 @@ If you are the original author or rights holder and would like this content remo
 This project is not affiliated with, endorsed by, or sponsored by Liao Xuefeng.
 
 ## 免责声明
-本网站是对廖雪峰的Java教程内容的非官方翻译，仅用于学习和教学目的，不用于任何商业用途。
+本网站是对[廖雪峰的Java教程](https://liaoxuefeng.com/books/java/introduction/index.html)内容的非官方翻译，仅用于学习和教学目的，不用于任何商业用途。
 
 原始内容的知识产权归廖雪峰所有。
 如果您是原作者或权利人，并希望本内容被删除或修改，请与我联系，我将立即处理。

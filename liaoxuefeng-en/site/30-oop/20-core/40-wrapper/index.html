@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="廖雪峰的 Java 教程 英文版。An unofficial English translation of Liaoxuefeng's Java Tutorial, for educational purposes only.">
+      
+      
+        <meta name="author" content="happy-mei">
       
       
         <link rel="canonical" href="https://happy-mei.github.io/liaoxuefeng-en/site/30-oop/20-core/40-wrapper/">
@@ -17,7 +21,7 @@
         <link rel="next" href="../50-javabean/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon-16x16.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -82,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-header__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -180,8 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-nav__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     Liaoxuefeng Java Tutorial
@@ -2371,19 +2373,19 @@
 <span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="c1">// 编译器自动使用Integer.intValue()</span>
 </code></pre></div>
 <p>This way of writing assignments that directly change <code>int</code> to <code>Integer</code> is called Auto Boxing, and conversely, the way of writing assignments that change <code>Integer</code> to <code>int</code> is called Auto Unboxing.</p>
-<p>```alert type=notice title=注意
-自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。
-<div class="highlight"><pre><span></span><code>Boxing and unboxing affects the efficiency of code execution because compiled `class` code strictly distinguishes between basic types and reference types. Moreover, automatic unboxing execution may report `NullPointerException`:
-
-```java
-// NullPointerException
-public class Main {
-    public static void main(String[] args) {
-        Integer n = null;
-        int i = n;
-    }
-}
-</code></pre></div></p>
+<blockquote>
+<p>[!NOTICE]注意</p>
+<p>自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。</p>
+</blockquote>
+<p>Boxing and unboxing affects the efficiency of code execution because compiled <code>class</code> code strictly distinguishes between basic types and reference types. Moreover, automatic unboxing execution may report <code>NullPointerException</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// NullPointerException</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="no-change-class">No-change class</h3>
 <p>All wrapper types are invariant classes. As we can see by looking at the source code of <code>Integer</code>, its core code is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Integer</span><span class="w"> </span><span class="p">{</span>
@@ -2407,20 +2409,21 @@ public class Main {
 <span class="p">}</span>
 </code></pre></div>
 <p>If you look at the result carefully, you can see that <code>==</code> comparison, the smaller two same <code>Integer</code> return <code>true</code>, the larger two same <code>Integer</code> return <code>false</code>, this is because <code>Integer</code> is an invariant class, the compiler change <code>Integer x = 127;</code> automatically to <code>Integer x = Integer.valueOf(127);</code>, and to save memory, <code>Integer.valueOf()</code> always returns the same instance for smaller numbers, so the <code>==</code> comparison "just happens" to be <code>true</code>, but we <em>mustn't</em> because the Java Standard Library's <code>Integer</code> has internal cache optimizations, we must use the <code>equals()</code> method to compare two <code>Integers</code>.</p>
-<p>```alert type=tip title=最佳实践
-按照语义编程，而不是针对特定的底层实现去“优化”。
-<div class="highlight"><pre><span></span><code>Since `Integer.valueOf()` may always return the same `Integer` instance, here are two ways to do it when we create `Integer` ourselves:
-
-* Method 1: `Integer n = new Integer(100);`
-* Method 2: `Integer n = Integer.valueOf(100);`
-
-Method 2 is better because method 1 always creates a new instance of `Integer`, and method 2 leaves the internal optimization to the implementer of `Integer`, and even if it is not optimized in the current version, it may be optimized in the next version.
-
-We call static methods that create &quot;new&quot; objects static factory methods. An example of a static factory method is `Integer.valueOf()`, which returns as many cached instances as possible to save memory.
-
-```alert type=tip title=最佳实践
-创建新对象时，优先选用静态工厂方法而不是new操作符。
-</code></pre></div></p>
+<blockquote>
+<p>[!TIP]最佳实践</p>
+<p>按照语义编程，而不是针对特定的底层实现去“优化”。</p>
+</blockquote>
+<p>Since <code>Integer.valueOf()</code> may always return the same <code>Integer</code> instance, here are two ways to do it when we create <code>Integer</code> ourselves:</p>
+<ul>
+<li>Method 1: <code>Integer n = new Integer(100);</code></li>
+<li>Method 2: <code>Integer n = Integer.valueOf(100);</code></li>
+</ul>
+<p>Method 2 is better because method 1 always creates a new instance of <code>Integer</code>, and method 2 leaves the internal optimization to the implementer of <code>Integer</code>, and even if it is not optimized in the current version, it may be optimized in the next version.</p>
+<p>We call static methods that create "new" objects static factory methods. An example of a static factory method is <code>Integer.valueOf()</code>, which returns as many cached instances as possible to save memory.</p>
+<blockquote>
+<p>[!TIP]最佳实践</p>
+<p>创建新对象时，优先选用静态工厂方法而不是new操作符。</p>
+</blockquote>
 <p>If we examine the source code of the <code>Byte.valueOf()</code> method, we can see that all the instances of <code>Byte</code> returned by the standard library are cached instances, but the caller doesn't care whether the static factory method creates a new instance in any way or returns the cached instance directly.</p>
 <h3 id="conversion">Conversion</h3>
 <p>The <code>Integer</code> class itself also provides a large number of methods, for example, the most commonly used static method <code>parseInt()</code> parses a string into an integer:</p>
@@ -2516,6 +2519,11 @@ We call static methods that create &quot;new&quot; objects static factory method
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2023 happy-mei. This is an unofficial, non-commercial translation of 廖雪峰的 Java 教程. All original content © 廖雪峰. Visit the official tutorial at https://liaoxuefeng.com/books/java.
+
+    </div>
   
   
     Made with

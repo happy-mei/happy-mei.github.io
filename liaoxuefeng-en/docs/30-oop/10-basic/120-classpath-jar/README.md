@@ -61,9 +61,9 @@ Often, in `class`s we write ourselves, we refer to `class`s from the core Java l
 
 There are a lot of "how to set classpath" articles that will tell you to put the JVM's own `rt.jar` into the `classpath`, but in fact, there's no need to tell the JVM how to look for the `class` in the core Java libraries, and how can the JVM be so stupid as to not know where its own core libraries are! How can the JVM be so stupid that it doesn't even know where its core libraries are?
 
-```alert type=warning title=注意
-不要把任何Java核心库添加到classpath中！JVM根本不依赖classpath加载核心库！
-```
+> [!WARNING]注意
+>
+> 不要把任何Java核心库添加到classpath中！JVM根本不依赖classpath加载核心库！
 
 Better yet, don't set `classpath`! The default current directory `. ` is sufficient for the vast majority of cases.
 

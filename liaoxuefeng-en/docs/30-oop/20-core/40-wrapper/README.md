@@ -89,9 +89,9 @@ int x = n; // 编译器自动使用Integer.intValue()
 
 This way of writing assignments that directly change `int` to `Integer` is called Auto Boxing, and conversely, the way of writing assignments that change `Integer` to `int` is called Auto Unboxing.
 
-```alert type=notice title=注意
-自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。
-```
+> [!NOTICE]注意
+>
+> 自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。
 
 Boxing and unboxing affects the efficiency of code execution because compiled `class` code strictly distinguishes between basic types and reference types. Moreover, automatic unboxing execution may report `NullPointerException`:
 
@@ -137,9 +137,9 @@ public class Main {
 
 If you look at the result carefully, you can see that `==` comparison, the smaller two same `Integer` return `true`, the larger two same `Integer` return `false`, this is because `Integer` is an invariant class, the compiler change `Integer x = 127;` automatically to `Integer x = Integer.valueOf(127);`, and to save memory, `Integer.valueOf()` always returns the same instance for smaller numbers, so the `==` comparison "just happens" to be `true`, but we _mustn't_ because the Java Standard Library's ` Integer` has internal cache optimizations, we must use the `equals()` method to compare two `Integers`.
 
-```alert type=tip title=最佳实践
-按照语义编程，而不是针对特定的底层实现去“优化”。
-```
+> [!TIP]最佳实践
+>
+> 按照语义编程，而不是针对特定的底层实现去“优化”。
 
 Since `Integer.valueOf()` may always return the same `Integer` instance, here are two ways to do it when we create `Integer` ourselves:
 
@@ -150,9 +150,9 @@ Method 2 is better because method 1 always creates a new instance of `Integer`, 
 
 We call static methods that create "new" objects static factory methods. An example of a static factory method is `Integer.valueOf()`, which returns as many cached instances as possible to save memory.
 
-```alert type=tip title=最佳实践
-创建新对象时，优先选用静态工厂方法而不是new操作符。
-```
+> [!TIP]最佳实践
+>
+> 创建新对象时，优先选用静态工厂方法而不是new操作符。
 
 If we examine the source code of the `Byte.valueOf()` method, we can see that all the instances of `Byte` returned by the standard library are cached instances, but the caller doesn't care whether the static factory method creates a new instance in any way or returns the cached instance directly.
 

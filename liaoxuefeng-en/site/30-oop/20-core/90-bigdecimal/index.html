@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="廖雪峰的 Java 教程 英文版。An unofficial English translation of Liaoxuefeng's Java Tutorial, for educational purposes only.">
+      
+      
+        <meta name="author" content="happy-mei">
       
       
         <link rel="canonical" href="https://happy-mei.github.io/liaoxuefeng-en/site/30-oop/20-core/90-bigdecimal/">
@@ -17,7 +21,7 @@
         <link rel="next" href="../100-utils/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon-16x16.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -82,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-header__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -180,8 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Liaoxuefeng Java Tutorial" class="md-nav__button md-logo" aria-label="Liaoxuefeng Java Tutorial" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/images/favicon-32x32.png" alt="logo">
 
     </a>
     Liaoxuefeng Java Tutorial
@@ -2294,16 +2296,16 @@ if (dr[1].signum() == 0) {
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">d1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">d2</span><span class="p">));</span><span class="w"> </span><span class="c1">// 0 = 相等, -1 = d1 &lt; d2, 1 = d1 &gt; d2</span>
 </code></pre></div>
 <p>Comparisons must be made using the <code>compareTo()</code> method, which returns negative, positive, and <code>0</code> for less than, greater than, and equal to, respectively, depending on the size of the two values.</p>
-<p>```alert type=warning title=注意
-总是使用compareTo()比较两个BigDecimal的值，不要使用equals()！
-<div class="highlight"><pre><span></span><code>If you look at the source code of `BigDecimal`, you can see that a `BigDecimal` is actually represented by a `BigInteger` and a `scale`, i.e., the `BigInteger` represents a full integer and the `scale` represents the number of decimal places:
-
-```java
-public class BigDecimal extends Number implements Comparable&lt;BigDecimal&gt; {
-    private final BigInteger intVal;
-    private final int scale;
-}
-</code></pre></div></p>
+<blockquote>
+<p>[!WARNING]注意</p>
+<p>总是使用compareTo()比较两个BigDecimal的值，不要使用equals()！</p>
+</blockquote>
+<p>If you look at the source code of <code>BigDecimal</code>, you can see that a <code>BigDecimal</code> is actually represented by a <code>BigInteger</code> and a <code>scale</code>, i.e., the <code>BigInteger</code> represents a full integer and the <code>scale</code> represents the number of decimal places:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BigDecimal</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Number</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BigInteger</span><span class="w"> </span><span class="n">intVal</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">scale</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><code>BigDecimal</code> also inherits from <code>Number</code> and is also an immutable object.</p>
 <h3 id="summary">Summary</h3>
 <p><code>BigDecimal</code> is used to represent exact decimals and is often used in financial calculations;</p>
@@ -2335,6 +2337,11 @@ public class BigDecimal extends Number implements Comparable&lt;BigDecimal&gt; {
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2023 happy-mei. This is an unofficial, non-commercial translation of 廖雪峰的 Java 教程. All original content © 廖雪峰. Visit the official tutorial at https://liaoxuefeng.com/books/java.
+
+    </div>
   
   
     Made with

@@ -65,9 +65,9 @@ class Student extends Person {
 
 As you can see, with inheritance, `Student` only needs to write additional functionality and no longer needs to duplicate code.
 
-```alert type=warning title=注意
-子类自动获得了父类的所有字段，严禁定义与父类重名的字段！
-```
+> [!WARNING]注意
+>
+> 子类自动获得了父类的所有字段，严禁定义与父类重名的字段！
 
 In OOP terminology, we refer to `Person` as super class, parent class, base class and `Student` as subclass, extended class.
 

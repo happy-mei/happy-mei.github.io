@@ -36,11 +36,11 @@ You can also practice while you learn and you can practice online!
 
 And, always update to the latest version of Java! The current tutorial version is:
 
-## Java 22!
+# Java 22!
 
 Most importantly:
 
-## Free!
+# Free!
 
 Don't hesitate! Start learning Java now, from beginner to architect!
 

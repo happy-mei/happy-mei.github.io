@@ -220,9 +220,9 @@ enum Weekday {
 
 This eliminates the need to worry about order changes, and when adding new enumeration constants, you also need to specify an `int` value.
 
-```alert type=warning title=注意
-枚举类的字段也可以是非final类型，即可以在运行期修改，但是不推荐这样做！
-```
+> [!WARNING]注意
+>
+> 枚举类的字段也可以是非final类型，即可以在运行期修改，但是不推荐这样做！
 
 By default, calling `toString()` on enum constants returns the same string as `name()`. However, `toString()` can be overridden, whereas `name()` cannot. We can add the `toString()` method to `Weekday`:
 
@@ -259,9 +259,9 @@ enum Weekday {
 
 The purpose of overriding `toString()` is to make the output more readable.
 
-```alert type=warning title=注意
-判断枚举常量的名字，要始终使用name()方法，绝不能调用toString()！
-```
+> [!WARNING]注意
+>
+> 判断枚举常量的名字，要始终使用name()方法，绝不能调用toString()！
 
 ### Switch
 

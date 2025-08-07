@@ -56,9 +56,9 @@ public class Hello {
 
 Running `Hello` with a JVM lower than Java 11 gets a `LinkageError` because the `Hello.class` file cannot be loaded, and running `Hello` with Java 11 gets a `NoSuchMethodError` because the `String.indent()` method was added from Java 12, and the `String` version of Java 11 doesn't have an `indent()` method at all.
 
-```alert type=notice title=注意
-如果使用--release 11则会在编译时检查该方法是否在Java 11中存在。
-```
+> [!NOTICE]注意
+>
+> 如果使用--release 11则会在编译时检查该方法是否在Java 11中存在。
 
 Therefore, if the version of the JVM at runtime is Java 11, it is also better to use Java 11 at compile time, rather than compiling with a higher version of the JDK to output a lower version of the class.
 

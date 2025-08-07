@@ -49,7 +49,7 @@ Compare the interfaces of Commons Logging and SLF4J:
 
 The difference is that `Log` becomes `Logger` and `LogFactory` becomes `LoggerFactory`.
 
-The use of SLF4J and Logback is similar to the use of Commons Logging and Log4j as mentioned earlier, first download [SLF4J](https://www.slf4j.org/download.html) and [Logback](https://logback.qos.ch/download.html), and then put the following jar package to the classpath:
+The use of SLF4J and Logback is similar to the use of Commons Logging and Log4j as mentioned earlier, first download [SLF4J](https://www.slf4j.org/download.html) and [Logback](https://logback.qos.ch /download.html), and then put the following jar package to the classpath:
 
 * slf4j-api-1.7.x.jar
 * logback-classic-1.2.x.jar

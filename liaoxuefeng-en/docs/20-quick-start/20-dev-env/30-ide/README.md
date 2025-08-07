@@ -44,9 +44,9 @@ The version we need to download is Eclipse IDE for Java Developers:
 
 Depending on whether the operating system is Windows, Mac or Linux, select the corresponding download link from the right.
 
-```alert type=notice title=注意
-教程从头到尾并不需要用到Enterprise Java的功能，所以不需要下载Eclipse IDE for Enterprise Java Developers
-```
+> [!NOTICE]注意
+>
+> 教程从头到尾并不需要用到Enterprise Java的功能，所以不需要下载Eclipse IDE for Enterprise Java Developers
 
 ### Setting up Eclipse
 
@@ -78,9 +78,9 @@ By setting the "Compiler compliance level" to `20`, all code in this tutorial us
 
 Remove "Use default compliance settings" and hook "Enable preview features for Java 20" so that we can use the preview features of Java 20. 20 preview features.
 
-```alert type=notice title=注意
-如果Compiler compliance level没有22这个选项，请更新到最新版Eclipse。如果更新后还是没有22，打开Help - Eclipse Marketplace，搜索Java 22 Support安装后重启即可。
-```
+> [!NOTICE]注意
+>
+> 如果Compiler compliance level没有22这个选项，请更新到最新版Eclipse。如果更新后还是没有22，打开Help - Eclipse Marketplace，搜索Java 22 Support安装后重启即可。
 
 #### Java > Installed JREs
 

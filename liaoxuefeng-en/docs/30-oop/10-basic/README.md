@@ -106,9 +106,9 @@ hong ──────▶│Person instance   │
 
 The two `instances` have the `name` and `age` fields defined by the `class`, and each has a separate copy of the data that does not interfere with each other.
 
-```alert type=notice title=注意
-一个Java源文件可以包含多个类的定义，但只能定义一个public类，且public类名必须与文件名一致。如果要定义多个public类，必须拆到多个Java源文件中。
-```
+> [!NOTICE]注意
+>
+> 一个Java源文件可以包含多个类的定义，但只能定义一个public类，且public类名必须与文件名一致。如果要定义多个public类，必须拆到多个Java源文件中。
 
 ### Exercise
 

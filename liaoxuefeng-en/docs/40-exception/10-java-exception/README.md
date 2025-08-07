@@ -135,9 +135,9 @@ Java regulations:
 * Exceptions that must be caught, including `Exception` and its subclasses, but excluding `RuntimeException` and its subclasses; this type of exception is called a Checked Exception.
 * Exceptions that do not need to be caught, including `Error` and its subclasses, and `RuntimeException` and its subclasses.
 
-```alert type=warning title=注意
-编译器对RuntimeException及其子类不做强制捕获要求，不是指应用程序本身不应该捕获并处理RuntimeException。是否需要捕获，具体问题具体分析。
-```
+> [!WARNING]注意
+>
+> 编译器对RuntimeException及其子类不做强制捕获要求，不是指应用程序本身不应该捕获并处理RuntimeException。是否需要捕获，具体问题具体分析。
 
 ### Catch exceptions
 
