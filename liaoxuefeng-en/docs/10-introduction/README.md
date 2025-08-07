@@ -3,7 +3,7 @@
 
 ![cover](cover.jpg)
 
-This is a zero-based Java tutorial specifically for white people.
+This is a zero-based Java tutorial specifically for beginners.
 
 Why learn Java?
 
